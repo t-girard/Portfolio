@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function() {
     const btn = document.querySelector('header nav button.languageButton');
-    const link = document.querySelector('header nav a.languageButton');
+    const link = document.querySelector('header nav a.languageLink');
     link.style.display = "none";
 
     btn.addEventListener('click', function(event) {
@@ -131,3 +131,72 @@ document.addEventListener("DOMContentLoaded", function() {
         event.stopPropagation();
     });
 });
+
+// Ajuste la taille du texte pour que le contenu .bouton-ensavoirplus tienne sur une seule ligne.
+// Part d'une taille par défaut (24px) et descend jusqu'à minFontSize.
+// Exécute au chargement et au resize (debounced).
+
+(function () {
+  const DEFAULT_SIZE = 24; // taille par défaut demandée
+  const MIN_SIZE = 10;     // taille minimale acceptée
+  const STEP = 0.5;        // diminution en px par itération (précision)
+  const DEBOUNCE_MS = 120;
+
+  function fitOne(btn) {
+    // on choisit le span s'il existe, sinon le bouton lui-même
+    const text = btn.querySelector('span');
+    // remettre la taille par défaut avant de tester
+    text.style.fontSize = DEFAULT_SIZE + 'px';
+
+    // si le texte déborde (scrollWidth > clientWidth) on réduit progressivement
+    // on boucle mais on protège contre les boucles infinies en utilisant MIN_SIZE
+    let current = parseFloat(getComputedStyle(text).fontSize);
+    // floating small loop — ok car les boutons rares et courts
+    while (text.scrollWidth > btn.clientWidth -15 && current > MIN_SIZE) {
+      current = Math.max(MIN_SIZE, current - STEP);
+      text.style.fontSize = current + 'px';
+      // si atteint min, on s'arrête ; ellipsis CSS montrera "..." si ça dépasse encore
+      if (current <= MIN_SIZE) break;
+    }
+  }
+
+  function fitAll() {
+    const buttons = document.querySelectorAll('.bouton-ensavoirplus');
+    buttons.forEach(btn => {
+      // pour certains layouts, il est utile de forcer un reflow avant de mesurer
+      // (read clientWidth triggers reflow)
+      void btn.offsetWidth;
+      fitOne(btn);
+    });
+  }
+
+  // debounce helper
+  function debounce(fn, wait) {
+    let t;
+    return function () {
+      clearTimeout(t);
+      t = setTimeout(fn, wait);
+    };
+  }
+
+  // run on DOMContentLoaded et sur resize
+  document.addEventListener('DOMContentLoaded', fitAll);
+  window.addEventListener('resize', debounce(fitAll, DEBOUNCE_MS));
+
+  // MutationObserver pour détecter un changement de texte dynamique (facultatif mais utile)
+  const observer = new MutationObserver(debounce(fitAll, 60));
+  document.querySelectorAll('.bouton-ensavoirplus').forEach(btn => {
+    observer.observe(btn, { childList: true, subtree: true, characterData: true });
+  });
+
+  // si des boutons sont ajoutés dynamiquement plus tard, on peut détecter le container parent
+  // (optionnel) : observer globale qui ajoute l'observer sur les nouveaux .bouton-ensavoirplus
+  const bodyObs = new MutationObserver(debounce(() => {
+    document.querySelectorAll('.bouton-ensavoirplus').forEach(btn => {
+      observer.observe(btn, { childList: true, subtree: true, characterData: true });
+    });
+    fitAll();
+  }, 200));
+  bodyObs.observe(document.body, { childList: true, subtree: true });
+
+})();
