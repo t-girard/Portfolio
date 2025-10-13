@@ -197,6 +197,10 @@ article{
     gap: 20%;
 }
 
+#projetsContainer>article>div>h1{
+    margin-bottom: 12vh;
+}
+
 .projet{
     display: flex;
     justify-content: space-between;
