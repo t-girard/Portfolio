@@ -26,37 +26,64 @@ header nav p{
     font-size: 25px;
 }
 
-header nav>button{
+.languageButton{
     position: absolute;
     top: 25px;
     right: 3vw;
-    background-color: black;
-    color: white;
-    border: 1px solid white;
-    border-radius: 2px; 
-    width: 100px;
+    border-radius: 2px;
     height: 50px;
     font-size: 16px;
-    box-shadow: 0px 0px 10px black, 0px 0px 15px white;
     z-index: 1000;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px #403939;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: #2b293a;
+    width: 80px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
 }
 
-header nav>a{
+.languageLink{
     position: absolute;
     top: 75px;
     right: 3vw;
-    background-color: black;
-    color: white;
-    border: 1px solid white;
     border-radius: 2px;
-    text-decoration: none;
-    width: 83px;
-    height: 30px;
-    text-align: center;
-    padding-top: 15px;
-    padding-left: 15px;
+    height: 50px;
+    font-size: 16px;
     z-index: 1000;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px #403939;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: #2b293a;
+    width: 60px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
     display: none;
+}
+
+.languageButton:hover {
+    background-color: white;
+    color: black;
+}
+
+.languageLink:hover{
+    background-color: white;
+    color: black;
+}
+
+#langageicon {
+    font-size: 8px;
+    color: white;
 }
 
 header nav h1{
@@ -106,7 +133,6 @@ section{
 article{
     display: flex;
     justify-content: center;
-    gap: 10px;
 }
 
 #arrowL, #arrowR {
@@ -131,10 +157,6 @@ article{
     z-index: 2;
     border-radius: 5px;
     padding: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
     color: white;
     text-decoration: none;
     box-shadow: 0px 0px 10px #403939;
@@ -180,6 +202,11 @@ article{
 #infosContainer>p{
     width: 50%;
     letter-spacing: 0.5px;
+    text-align: justify;
+}
+
+#infosContainer>.bouton-telecharger{
+    margin-top: 15px;
 }
 
 #CVContainer{
@@ -200,19 +227,20 @@ article{
     display: flex;
     width: 100%;
     justify-content: center;
-    gap: 20%;
+    gap: 5%;
     align-items: center;
 }
 
 #projetsContainer>article>div>h1{
-    margin-bottom: 12vh;
+    margin-top: 0px;
+    padding-bottom: 5%;
 }
 
 .projet{
     display: flex;
     justify-content: space-between;
     max-width: 80%;
-    box-shadow: rgba(255, 255, 255, 0.1) 5px 0px 25px 15px;
+    box-shadow: rgba(255, 255, 255, 0.1) 5px 0px 50px 5px;
 }
 
 .projet>div{
@@ -227,6 +255,7 @@ article{
 .projet img{
     width: 25vw;
     height: 200px;
+    border-radius: 10px;
 }
 
 #projetsContainer .projet{
@@ -234,20 +263,16 @@ article{
     margin: 0px;
     margin-bottom: 100px;
     width: 50%;
+    border-radius: 10px;
 }
 
 .bouton-telecharger {
-    position: absolute;
     left: 3vw;
     top: 12vh;
     font-size: 25px;
     z-index: 2;
     border-radius: 5px;
     padding: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
     color: white;
     text-decoration: none;
     box-shadow: 0px 0px 10px #403939;
@@ -255,7 +280,13 @@ article{
     padding-left: 10px;    
     background-color: #2b293a;
     width: 9vw;
+    height: 75%;
     text-align: center;
+    white-space: nowrap;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bouton-telecharger:hover{
@@ -264,17 +295,11 @@ article{
 }
 
 .bouton-ensavoirplus {
-    position: absolute;
     left: 15vw;
     top: 12vh;
-    font-size: 25px;
     z-index: 2;
     border-radius: 5px;
     padding: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
     color: white;
     text-decoration: none;
     box-shadow: 0px 0px 10px #403939;
@@ -282,7 +307,24 @@ article{
     padding-left: 10px;
     background-color: #2b293a;
     width: 9vw;
+    height: 75%;
     text-align: center;
+    vertical-align: middle;
+    display: flex;      
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;         
+    overflow: hidden;            
+    text-overflow: ellipsis;     
+    line-height: 1;              
+    min-width: 0;
+    font-size: 24px;                   
+}
+
+/* cible le span texte pour que le JS modifie la taille facilement */
+.bouton-ensavoirplus > span {
+  display: inline-block; /* nécessaire pour mesurer scrollWidth correctement */
+  transform-origin: left center;
 }
 
 .bouton-ensavoirplus:hover{
@@ -293,16 +335,6 @@ article{
 #mainBody{
     overflow: hidden;
     height: 100vh;
-}
-
-.languageButton:hover {
-    background-color: white;
-    color: black;
-}
-
-#langageicon {
-    font-size: 8px;
-    color: white;
 }
 
 @media screen and (max-width: 768px) {
