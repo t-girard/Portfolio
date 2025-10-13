@@ -195,6 +195,8 @@ article{
     width: 100%;
     justify-content: center;
     gap: 20%;
+    align-items: center;
+    height: 75px;
 }
 
 #projetsContainer>article>div>h1{
@@ -232,7 +234,7 @@ article{
 .bouton-telecharger {
 position: absolute;
   left: 5vw;
-  top: 15vh;
+  top: 12vh;
   font-size: 25px;
   z-index: 2;
   border: 1px solid white;
@@ -256,7 +258,7 @@ position: absolute;
 .bouton-ensavoirplus {
 position: absolute;
   left: 5vw;
-  top: 15vh;
+  top: 12vh;
   font-size: 25px;
   z-index: 2;
   border: 1px solid white;
