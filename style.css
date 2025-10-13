@@ -236,24 +236,25 @@ article{
 }
 
 .bouton-telecharger {
-position: absolute;
-  left: 15vw;
-  top: 12vh;
-  font-size: 25px;
-  z-index: 2;
-  border-radius: 5px;
-  padding: 5px;
+    position: absolute;
+    left: 3vw;
+    top: 12vh;
+    font-size: 25px;
+    z-index: 2;
+    border-radius: 5px;
+    padding: 5px;
     padding-right: 5px;
     padding-left: 5px;
-  padding-right: 5px;
-  padding-left: 5px;
-  color: white;
-  text-decoration: none;
-  box-shadow: 0px 0px 10px #403939;
-  padding-right: 10px;
-  padding-left: 10px;
-  background-color: #2b293a;
-  width: 9vw;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px #403939;
+    padding-right: 10px;
+    padding-left: 10px;    
+    background-color: #2b293a;
+    width: 9vw;
+    text-align: center;
 }
 
 .bouton-telecharger:hover{
@@ -262,24 +263,25 @@ position: absolute;
 }
 
 .bouton-ensavoirplus {
-position: absolute;
-  left: 15vw;
-  top: 12vh;
-  font-size: 25px;
-  z-index: 2;
-  border-radius: 5px;
-  padding: 5px;
+    position: absolute;
+    left: 15vw;
+    top: 12vh;
+    font-size: 25px;
+    z-index: 2;
+    border-radius: 5px;
+    padding: 5px;
     padding-right: 5px;
     padding-left: 5px;
-  padding-right: 5px;
-  padding-left: 5px;
-  color: white;
-  text-decoration: none;
-  box-shadow: 0px 0px 10px #403939;
-  padding-right: 10px;
-  padding-left: 10px;
-  background-color: #2b293a;
-  width: 9vw;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px #403939;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: #2b293a;
+    width: 9vw;
+    text-align: center;
 }
 
 .bouton-ensavoirplus:hover{
