@@ -224,20 +224,22 @@ article{
 }
 
 .bouton-telecharger {
-  background-color: black;
-  color: white;
-  display: flex;
-  align-items: center;
-  height: 25px;
-  gap: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  text-decoration: none;
-  border: 2px solid white;
+position: absolute;
+  left: 5vw;
+  top: 15vh;
+  font-size: 25px;
+  z-index: 2;
+  border: 1px solid white;
   border-radius: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+  color: white;
+  text-decoration: none;
   box-shadow: 0px 0px 10px black, 0px 0px 15px white;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: #2b293a;
 }
 
 .bouton-telecharger:hover{
@@ -246,20 +248,22 @@ article{
 }
 
 .bouton-ensavoirplus {
-  background-color: black;
-  color: white;
-  display: flex;
-  align-items: center;
-  height: 25px;
-  gap: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  text-decoration: none;
-  border: 2px solid white;
+position: absolute;
+  left: 5vw;
+  top: 15vh;
+  font-size: 25px;
+  z-index: 2;
+  border: 1px solid white;
   border-radius: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+  color: white;
+  text-decoration: none;
   box-shadow: 0px 0px 10px black, 0px 0px 15px white;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: #2b293a;
 }
 
 .bouton-ensavoirplus:hover{
