@@ -150,7 +150,7 @@ article{
 #arrowR { left: 55vw; }
 
 #retour{
-    position: absolute;
+    position: fixed;
     left: 5vw;
     top: 15vh;
     font-size: 25px;
