@@ -129,14 +129,19 @@ article{
     top: 15vh;
     font-size: 25px;
     z-index: 2;
-    border: 1px solid white;
     border-radius: 5px;
     padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
     color: white;
     text-decoration: none;
-    box-shadow: 0px 0px 10px black, 0px 0px 15px white;
+    box-shadow: 0px 0px 10px #403939;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: #2b293a;
+    width: 9vw;
 }
 
 #retour:hover{
