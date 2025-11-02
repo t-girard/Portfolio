@@ -547,4 +547,8 @@ article{
     #mainParcours>div>img{
         max-width: 100vw;
     }
+
+    .margin-bottom15px {
+        margin-bottom: 15px;
+    }
 }
