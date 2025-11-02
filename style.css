@@ -483,7 +483,7 @@ article{
     .projetsContainer>article>div>div{
         display: flex;
         width: 100%;
-        margin-bottom: 15px !important;
+        margin-bottom: 15px;
     }
 
     .indexContainer {
