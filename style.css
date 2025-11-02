@@ -318,13 +318,6 @@ article{
     padding-bottom: 5%;
 }
 
-.projet{
-    display: flex;
-    justify-content: space-between;
-    max-width: 80%;
-    box-shadow: rgba(255, 255, 255, 0.1) 5px 0px 50px 5px;
-}
-
 .projet>div{
     display: flex;
     flex-direction: column;
@@ -345,7 +338,11 @@ article{
     margin: 0px;
     margin-bottom: 100px;
     width: 50%;
+    max-width: 80%;
     border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(255, 255, 255, 0.1) 5px 0px 50px 5px;
 }
 
 .bouton-telecharger {
@@ -397,8 +394,7 @@ article{
     align-items: center;
     white-space: nowrap;         
     overflow: hidden;            
-    text-overflow: ellipsis;     
-    line-height: 1;              
+    text-overflow: ellipsis;                   
     min-width: 0;
     font-size: 24px;                   
 }
@@ -419,7 +415,7 @@ article{
     height: 100vh;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (orientation: portrait) {
     header>nav>div{
         display: block;
     }
@@ -465,6 +461,19 @@ article{
 
     .projet{
         width: 90% !important;
+        flex-direction: column;
+    }
+
+    .projet>div {
+        width: 100%;
+    }
+
+    .projet img{
+        width: 100%;
+    }
+
+    #projetsContainer>article>div>h1 {
+        padding-bottom: 0px;
     }
 
     #infosContainer>p{
@@ -474,6 +483,7 @@ article{
     .projetsContainer>article>div>div{
         display: flex;
         width: 100%;
+        margin-bottom: 15px !important;
     }
 
     .indexContainer {
@@ -482,8 +492,9 @@ article{
     }
 
     .bouton-telecharger, .bouton-ensavoirplus{
-        font-size: 15px;
+        font-size: 15px !important;
         width: 15vw;
+        height: 32px;
     }
 
     #retour {
