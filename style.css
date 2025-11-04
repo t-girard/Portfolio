@@ -28,6 +28,11 @@ header nav p{
     font-size: 25px;
 }
 
+header a{
+    text-decoration: none;
+    color: white;
+}
+
 .titreNav{
     position: absolute;
     top: 10vh;
@@ -107,8 +112,10 @@ header nav p{
 
 header nav h1{
     position: absolute;
-    width: 100vw;
     text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 main {
@@ -169,7 +176,8 @@ article{
 #arrowR { left: 55vw; }
 
 #retour{
-    position: fixed;
+    visibility: hidden;
+    position: absolute;
     left: 5vw;
     top: 15vh;
     font-size: 25px;
@@ -502,7 +510,7 @@ article{
     }
 
     #retourCircle {
-        visibility: visible;
+        visibility: hidden;
         position: fixed;
         font-size: 5vh;
         left: 3vh;
