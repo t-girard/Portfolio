@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const a_list = Array.from(document.querySelectorAll("main>a"));
-    const arrowL = document.getElementById("arrowL");
-    const arrowR = document.getElementById("arrowR");
+    const arrowL = document.getElementById("arrowR");
+    const arrowR = document.getElementById("arrowL");
     let isAnimating = false;
     let autoRotateTimer;
 
