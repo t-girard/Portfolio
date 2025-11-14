@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const a_list = Array.from(document.querySelectorAll("main>a"));
-    const arrowL = document.getElementById("arrowR");
-    const arrowR = document.getElementById("arrowL");
+    const arrowL = document.getElementById("arrowL");
+    const arrowR = document.getElementById("arrowR");
     let isAnimating = false;
     let autoRotateTimer;
 
@@ -199,4 +199,72 @@ document.addEventListener("DOMContentLoaded", function() {
   }, 200));
   bodyObs.observe(document.body, { childList: true, subtree: true });
 
+
+  window.addEventListener("load", () => {
+        const canvas = document.getElementById("backgroundLines");
+        const ctx = canvas.getContext("2d");
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener("resize", resize);
+
+        const lines = [];
+
+        function createLine() {
+            // Point de départ légèrement en dehors de l'écran (en haut à gauche)
+            const startX = -50;
+            const startY = Math.random()*2 * canvas.height -500;
+
+            const speed = 2 + Math.random() * 2; // vitesse modérée
+
+            lines.push({
+                x: startX,
+                y: startY,
+                length: 150 + Math.random() * 150,
+                speed,
+                // angle fixe : diagonale haut-gauche → bas-droite
+                angle: Math.PI / 6, 
+                alpha: 0.25 + Math.random() * 0.35
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.lineWidth = 1; // TRAITS PLUS FINS
+
+            lines.forEach((line, i) => {
+                ctx.strokeStyle = `rgba(0, 200, 255, ${line.alpha})`;
+                ctx.shadowColor = "rgba(3, 44, 65, 0.8)";
+                ctx.shadowBlur = 8;
+
+                ctx.beginPath();
+                ctx.moveTo(line.x, line.y);
+                ctx.lineTo(
+                    line.x + line.length * Math.cos(line.angle),
+                    line.y + line.length * Math.sin(line.angle)
+                );
+                ctx.stroke();
+
+                // mouvement dans la direction diagonale
+                line.x += line.speed * Math.cos(line.angle);
+                line.y += line.speed * Math.sin(line.angle);
+
+                // supprime les lignes sorties de l’écran
+                if (line.x > canvas.width + 100 || line.y > canvas.height + 100) {
+                    lines.splice(i, 1);
+                }
+            });
+
+            // probabilité de créer une nouvelle ligne
+            if (Math.random() < 0.08) createLine();
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    });
 })();
