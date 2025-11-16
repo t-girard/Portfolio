@@ -6,23 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <script src="../script.js"></script>
 </head>
 <body>
     <header>
         <nav>
-            <a href="../index.html"><p>Thomas GIRARD</p></a>
+            <p>Thomas GIRARD</p>
             <h1>Mes projets</h1>
-            <button class="languageButton">FR<span class="fi fi-fr"></span></button>
-            <a href="../ENG/projetsEN.html" class="languageLink">EN<span class="fi fi-gb"></span></a>
+            <button class="languageButton">Langue <i class="fa fa-language" id="langageIcon"></i></button>
+            <a href="../ENG/projetsEN.html" class="languageButton">ENGLISH</a>
         </nav>
     </header>
 
     <a href="../index.html" id="retour">
+        <i class="fa fa-arrow-left"></i>
         retour
     </a>
 
@@ -30,24 +27,17 @@
         <i class="fa fa-arrow-left"></i>
     </a>
 
-    <a href="./infos.html" id="btnLeft">
-        <i class="fa fa-arrow-left"></i>
-        Mes informations
-    </a>
-
-    <a href="./parcours.html" id="btnRight">
-        Mon parcours
-        <i class="fa fa-arrow-right"></i>
-    </a>
-
     <main>
         <section id="projetsContainer">
             <article class="projet articleR">
                 <div>
                     <h1>Site Capgemini</h1>
-                    <div class="margin-bottom15px">
-                        <a href="https://t-girard.github.io/Capgemini_Site/" class="bouton-telecharger" target="_blank"><span>visiter</span></a>
-                        <a href="capgeminiPage.html" class="bouton-ensavoirplus"><span>En savoir plus</span></a>
+                    <div>
+                        <a href="../ressources/Capgemini.zip" class="bouton-telecharger" download="Capgemini.zip">
+                            télécharger
+                            <i class="fa fa-download"></i>
+                        </a>
+                        <a href="capgeminiPage.html" class="bouton-ensavoirplus">En savoir plus</a>
                     </div>
                 </div>
                 <img src="../ressources/img/capgemini_img.png" alt="Capgemini">
@@ -57,9 +47,12 @@
                 <img src="../ressources/img/alten_img.png" alt="Alten">
                 <div>
                     <h1>Site Alten</h1>
-                    <div class="margin-bottom15px">
-                        <a href="https://t-girard.github.io/Alten_Site/main.html" class="bouton-telecharger" target="_blank"><span>visiter</span></a>
-                        <a href="altenPage.html" class="bouton-ensavoirplus"><span>En savoir plus</span></a>
+                    <div>
+                        <a href="../ressources/Alten.zip" class="bouton-telecharger" download="Alten.zip">
+                            télécharger
+                            <i class="fa fa-download"></i>
+                        </a>
+                        <a href="altenPage.html" class="bouton-ensavoirplus">En savoir plus</a>
                     </div>
                 </div>
             </article>
@@ -67,9 +60,12 @@
             <article class="projet articleR">
                 <div>
                     <h1>Jeu Pong</h1>
-                    <div class="margin-bottom15px">
-                        <a href="https://t-girard.github.io/Pong/pong.html" class="bouton-telecharger" target="_blank"><span>visiter</span></a>
-                        <a href="pongPage.html" class="bouton-ensavoirplus"><span>En savoir plus</span></a>
+                    <div>
+                        <a href="../ressources/Pong.zip" class="bouton-telecharger" download="Pong.zip">
+                            télécharger
+                            <i class="fa fa-download"></i>
+                        </a>
+                        <a href="pongPage.html" class="bouton-ensavoirplus">En savoir plus</a>
                     </div>
                 </div>
                 <img src="../ressources/img/pong_img.png" alt="Pong">

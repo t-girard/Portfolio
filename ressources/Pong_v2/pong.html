@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong</title>
+    <link rel="stylesheet" href="pong.css">
+</head>
+<body>
+    <div>
+        <div id="titre">
+            <p>PONG</p>
+            <p>Touches du Joueur1 (à gauche) : 'z' et 's'</p>
+            <p>Touches du Joueur2 (à droite) : 'flèche du haut' et 'flèche du bas'</p>
+        </div>
+    </div>
+    <div id="menu">
+        <button onclick="demarrerJeu()">Jouer</button>
+        <button onclick="changerDifficulte()" id="difficulte">Difficultée : Facile</button>
+        <button onclick="changerMode()" id="mode">Mode : Joueur1 vs IA</button>
+        <button onclick="nbPoints_fin()" id="points">Points pour gagner : 5</button>
+        <button onclick="recommencerJeu()">Recommencer</button>
+    </div>
+    <script>
+        function scoreJ2(){
+            document.getElementById("scoreJoueur2").style.visibility = "visible";
+        }
+    </script>
+    <div id="pongJeu">
+        <div id="raquetteJoueur" class="raquette"></div>
+        <div id="raquetteIA" class="raquette"></div>
+        <div id="raquetteJoueur2" class="raquette"></div>
+        <div id="balle" class="balle"></div>
+        <div id="scoreJoueur" class="score">0</div>
+        <div id="scoreIA" class="score">0</div>
+        <div id="scoreJoueur2" class="score">0</div>
+    </div>
+    <div id="game_over"> 
+        <p>GAME OVER</p>
+        <p id="win">Le vainqueur est : </p>
+    </div>
+    <script src="pong.js"></script>
+</body>
+</html>
