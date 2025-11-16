@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function() {
         function createLine() {
             // Point de départ légèrement en dehors de l'écran (en haut à gauche)
             const startX = -50;
-            const startY = Math.random()*2 * canvas.height -500;
+            const startY = (Math.random() * -2000 + 1000);
 
             const speed = 2 + Math.random() * 2; // vitesse modérée
 
