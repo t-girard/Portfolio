@@ -165,24 +165,31 @@ main a:hover {
 main a h1 {
     text-align: center;
     font-size: 4vw;
+    color: white;
 }
 
 #indexParcours{
-    background:linear-gradient(rgb(255, 255, 255, 0.2), rgb(255, 255, 255, 0.6)), url("ressources/parcours-image.png");
-    background-size: cover;
+    background:url("ressources/parcours-image.png");
+    background-color: #B9E6F1;
+    background-size: 50vw 60vh;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 #indexInfos{
-    background:linear-gradient(rgb(255, 255, 255, 0.2), rgb(255, 255, 255, 0.6)), url("ressources/informations-image.png");
-    background-size: cover;
+    background:url("ressources/informations-image.png");
+    background-color: #B9E6F1;
+    background-size: 50vw 60vh;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 #indexProjet{
-    background:linear-gradient(rgb(255, 255, 255, 0.2), rgb(255, 255, 255, 0.6)), url("ressources/projets-image.JPG");
-    background-size: cover;
+    background:url("ressources/projets-image.JPG");
+    background-color: #B9E6F1;
+    background-size: 50vw 60vh;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 section{
@@ -481,6 +488,7 @@ article{
 
     main>a {
         height: 40vh;
+        align-items: start;
     }
 
     main>a:nth-of-type(2) {
@@ -489,6 +497,21 @@ article{
 
     main>a:nth-of-type(1), main>a:nth-of-type(3) {
         top: 45vh;
+    }
+
+    #indexParcours{
+        background-size: 25vh;
+        background-position: center;
+    }
+
+    #indexInfos{
+        background-size: 25vh;
+        background-position: center;
+    }
+
+    #indexProjet{
+        background-size: 25vh;
+        background-position: center;
     }
 
     .indexContainer {

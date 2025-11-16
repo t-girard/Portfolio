@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         autoRotateTimer = setInterval(() => {
             rotate_a_list("left");
         }, 6000);
-    }
+    } 
 
     a_list.forEach(a => {
         a.addEventListener("click", function (e) {
@@ -21,6 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function rotate_a_list(direction) {
         if (isAnimating) return;
         isAnimating = true;
+
+        a_list.forEach((a) => {
+            a.style.pointerEvents = "none";
+        }); // Désactive le hover et les clics pendant l'animation
 
         const positions = a_list.slice(0, 3).map(a => ({
             left: a.offsetLeft,
@@ -75,6 +79,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         a.style.transform = "none";
                     });
 
+                    a_list.forEach((a) => {
+                        a.style.pointerEvents = "auto";
+                    }); // Réactive le hover et les clics après l'animation
+
                     if (direction === "left") {
                         const newContents = a_list.slice(1, 4).map(a => ({
                             html: a.innerHTML,
@@ -105,14 +113,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     a_list[3].style.left = "-145vw";
                     a_list[3].style.top = "200vh";
-                    startAutoRotate();
+                    //startAutoRotate(); désactivé pour éviter les conflits
                     isAnimating = false;
                 }, 500);
             });
         });
     }
 
-    startAutoRotate();
+    //startAutoRotate(); désactivé pour éviter les conflits
     arrowR.addEventListener("click", () => rotate_a_list("right"));
     arrowL.addEventListener("click", () => rotate_a_list("left"));
 });
