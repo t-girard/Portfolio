@@ -113,14 +113,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     a_list[3].style.left = "-145vw";
                     a_list[3].style.top = "200vh";
-                    //startAutoRotate(); désactivé pour éviter les conflits
+                    startAutoRotate();
                     isAnimating = false;
                 }, 500);
             });
         });
     }
 
-    //startAutoRotate(); désactivé pour éviter les conflits
+    startAutoRotate();
     arrowR.addEventListener("click", () => rotate_a_list("right"));
     arrowL.addEventListener("click", () => rotate_a_list("left"));
 });
