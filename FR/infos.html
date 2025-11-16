@@ -6,25 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <script src="../script.js"></script>
 </head>
 <body>
     <header>
         <nav>
-            <p>Thomas GIRARD</p>
+            <a href="../index.html"><p>Thomas GIRARD</p></a>
             <h1>Mes informations</h1>
-            <button class="languageButton">Langue <i class="fa fa-language" id="langageIcon"></i></button>
-            <a href="../ENG/infosEN.html" class="languageButton">ENGLISH</a>
+            <button class="languageButton">FR<span class="fi fi-fr"></span></button>
+            <a href="../ENG/infosEN.html" class="languageLink">EN<span class="fi fi-gb"></span></a>
         </nav>
     </header>
 
     <a href="../index.html" id="retour">
-        <i class="fa fa-arrow-left"></i>
         retour
     </a>
 
     <a href="../index.html" id="retourCircle">
         <i class="fa fa-arrow-left"></i>
+    </a>
+
+    <a href="./parcours.html" id="btnLeft">
+        <i class="fa fa-arrow-left"></i>
+        <p>Mon parcours</p>
+    </a>
+
+    <a href="./projets.html" id="btnRight">
+        <p>Mes projets</p>
+        <i class="fa fa-arrow-right"></i>
     </a>
 
     <main>
@@ -35,16 +48,15 @@
                     Je suis titulaire d'un Bacalauréat de sciences et technologies de l'industrie et du développement durable.
                 </p>
                 <p>Je suis aussi un passionné de football et de jeux de sociétés. Je fais partie de deux associations de jeux de sociétés.</p>
+                <p>J'ai aussi lu énormément de livres durant mon enfance et en grande partie de l'heroic fantasy qui est mon genre préféré.</p>
                 <p>Je suis plutôt à l'aise en anglais et j'ai quelques bases en espagnol.</p>
                 <p>Mon adresse mail pour me contacter : thomas.girard@etu.univ-grenoble-alpes.fr</p>
                 <p>Vous pouvez trouver mon CV juste en dessous.</p>
             </article>
         </section>
         <div id="CVContainer">
-            <h1>Mon CV</h1>
             <a href="../ressources/CVThomasGIRARD.pdf" class="bouton-telecharger" download="CVThomasGIRARD.pdf" target="_blank">
-                télécharger
-                <i class="fa fa-download"></i>
+                Mon CV
             </a>
         </div>
     </main>
