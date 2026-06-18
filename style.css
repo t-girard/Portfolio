@@ -1,637 +1,819 @@
+/* --- BASES --- */
 body {
-    background-color: black;
+    background: black;
     margin: 0;
     width: 100vw;
+    height: 100vh;
     color: white;
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: "Oswald", sans-serif;
-    margin-bottom: 350px;
 }
 
-/* Canvas en arrière-plan */
 #backgroundLines {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    pointer-events: none; /* clics passent à travers */
+    z-index: -100;
+    pointer-events: none;
 }
 
+/* --- HEADER & NAVBAR --- */
 header {
-    height: 10%;
-    z-index: 1000;
-}
-
-header nav{
+    height: 10vh;
+    z-index: 3000;
     position: relative;
+}
+
+header nav {
+    height: 100%;
     display: flex;
+    position: relative;
 }
 
-header>nav>div{
-    display: flex;
-}
-
-header nav p{
-    margin-left: 2vw;
-    font-weight: bold;
-    font-size: 25px;
-}
-
-header a{
-    text-decoration: none;
-    color: white;
-}
-
-.titreNav{
+.animationToggle {
     position: absolute;
-    top: 10vh;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.titreNav p{
-    text-align: center;
-    margin: 15px;
-    line-height: 1.2;
-    font-size: 2.5vw;
-}
-
-.languageButton{
-    position: absolute;
+    left: 3vw; /* Aligné à gauche */
     top: 25px;
-    right: 3vw;
-    border-radius: 2px;
+    width: 50px;
     height: 50px;
-    font-size: 16px;
-    z-index: 1000;
-    color: white;
-    text-decoration: none;
-    box-shadow: 0px 0px 10px #403939;
-    padding-right: 10px;
-    padding-left: 10px;
+    border-radius: 2px;
     background-color: #2b293a;
-    width: 80px;
-    text-align: center;
+    color: white;
+    box-shadow: 0px 0px 10px #403939;
     display: inline-flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: center;
     border: none;
+    cursor: pointer;
+    z-index: 3002;
+    transition: all 0.3s ease;
 }
 
-.languageLink{
-    position: absolute;
-    top: 75px;
-    right: 3vw;
-    border-radius: 2px;
-    height: 50px;
-    font-size: 16px;
-    z-index: 1000;
-    color: white;
-    text-decoration: none;
-    box-shadow: 0px 0px 10px #403939;
-    padding-right: 10px;
-    padding-left: 10px;
-    background-color: #2b293a;
-    width: 60px;
-    text-align: center;
-    display: inline-flex;
-    justify-content: space-around;
-    align-items: center;
-    border: none;
-    display: none;
-}
-
-.languageButton:hover {
+.animationToggle:hover {
     background-color: white;
     color: black;
 }
 
-.languageLink:hover{
-    background-color: white;
-    color: black;
+.animationToggle i {
+    font-size: 1.2rem;
 }
 
-#langageicon {
-    font-size: 8px;
-    color: white;
-}
-
-header nav h1{
+.titreNav {
     position: absolute;
-    text-align: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 3001;
 }
 
-main {
-    position: relative;
-    width: 100%;
-    height: 80vh;
-}
-
-main>a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    flex-shrink: 0;
-    box-shadow: 0px 0px 10px black, 0px 0px 15px white;
-    width: 45vw;
-    height: 60vh;
-    background-color: white;
-    color: black;
-    position: absolute;
-    text-decoration: none;
-    transition: transform 0.5s ease-in-out;
-}
-
-main>a:nth-of-type(1) { left: -25vw; top: 40vh; }
-main>a:nth-of-type(2) { left: 27.5vw; top: 10vh;}
-main>a:nth-of-type(3) { left: 80vw; top: 40vh; }
-main>a:nth-of-type(4) { left: -145vw; top: 200vh; }
-
-main a:hover {
-    box-shadow: 0px 0px 15px black, 0px 0px 20px white;
-    transform: scale(1.05) !important;
-    transition: 2s !important;
-}
-
-main a h1 {
-    text-align: center;
-    font-size: 4vw;
+.titreNav a {
+    text-decoration: none !important;
     color: white;
-}
-
-#indexParcours{
-    background:url("ressources/parcours-image.png");
-    background-color: #B9E6F1;
-    background-size: 50vw 60vh;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-#indexInfos{
-    background:url("ressources/informations-image.png");
-    background-color: #B9E6F1;
-    background-size: 50vw 60vh;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-#indexProjet{
-    background:url("ressources/projets-image.JPG");
-    background-color: #B9E6F1;
-    background-size: 50vw 60vh;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-section{
-    display: flex;
-    flex-direction: column;
-    gap: 10vh;
-}
-
-article{
-    display: flex;
-    justify-content: center;
-}
-
-#arrowL, #arrowR {
-    position: fixed;
-    bottom: 3.5vh;
-    font-size: 6vw;
     cursor: pointer;
 }
 
-#arrowL:hover, #arrowR:hover {
-    font-size: 6.5vw;
+.titreNav p {
+    margin: 0;
+    font-size: 2.5vw;
+    text-align: center;
 }
 
-#arrowL { left: 40vw; }
-#arrowR { left: 55vw; }
-
-#retour{
-    visibility: hidden;
+/* BOUTON LANGUE */
+.languageButton,
+.languageLink {
     position: absolute;
-    left: 5vw;
-    top: 15vh;
-    font-size: 25px;
-    z-index: 2;
-    border-radius: 5px;
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-    box-shadow: 0px 0px 10px #403939;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 7px;
+    font-size: 85%;
+    right: 3vw;
+    border-radius: 2px;
+    height: 50px;
     background-color: #2b293a;
-    width: 9vw;
-    text-align: center;
+    color: white;
+    box-shadow: 0px 0px 10px #403939;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    border: none;
+    cursor: pointer;
+    z-index: 3002;
 }
 
-#retour:hover{
+.languageButton {
+    top: 25px;
+    width: 80px;
+}
+
+.languageLink {
+    top: 75px;
+    width: 80px;
+    display: none;
+    text-decoration: none;
+}
+
+.languageLink.visible {
+    display: inline-flex;
+}
+
+.languageButton:hover,
+.languageLink:hover {
     background-color: white;
     color: black;
 }
 
-#retourCircle {
+/* --- COLONNES --- */
+.indexContainer {
+    display: flex;
+    width: 96vw;
+    height: 85vh;
+    margin: 0 auto;
+    gap: 20px;
+    transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.column {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: flex 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+.column:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.column::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    z-index: -1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: scale(1);
+    filter: brightness(0.4);
+    transition: transform 1s, filter 0.5s;
+    pointer-events: none;
     visibility: hidden;
 }
 
-#btnLeft {
-    position: fixed;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    left: 3vw;
-    bottom: 15vh;
-    font-size: 1.2vw;
-    z-index: 2;
-    border-radius: 5px;
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-    box-shadow: 0px 0px 10px #403939;
-    padding-right: 10px;
-    padding-left: 10px;
-    background-color: #2b293a;
-    width: 9vw;
+#indexProjet::before {
+    background-image: url('../ressources/img/capgemini_img.png');
+}
+
+#indexInfos::before {
+    background-image: url('../ressources/img/infos_img.png');
+}
+
+#indexParcours::before {
+    background-image: url('../ressources/img/parcours_img.png');
+}
+
+.column-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
     text-align: center;
-}
-
-#btnLeft:hover{
-    background-color: white;
-    color: black;
-}
-
-#btnLeft p {
-    margin: 0px;
-}
-
-#btnRight {
-    position: fixed;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    right: 3vw;
-    bottom: 15vh;
-    font-size: 1.2vw;
-    z-index: 2;
-    border-radius: 5px;
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-    box-shadow: 0px 0px 10px #403939;
-    padding-right: 10px;
-    padding-left: 10px;
-    background-color: #2b293a;
-    width: 9vw;
-    text-align: center;
-}
-
-#btnRight:hover{
-    background-color: white;
-    color: black;
-}
-
-#btnRight p {
-    margin: 0px;
-}
-
-#mainParcours{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 35px;
-    width: 100vw;
-    height: 100%;
-    margin-bottom: 30px;
-}
-
-#mainParcours>div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#infosContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 75px;
-}
-
-#infosContainer>p{
-    width: 50%;
-    letter-spacing: 0.5px;
-    text-align: justify;
-    line-height: 1.4;
-    font-size: 1.5vw;
-}
-
-#infosContainer>.bouton-telecharger{
-    margin-top: 15px;
-}
-
-#CVContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-}
-
-#projetsContainer{
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#projetsContainer>article>div>div{
-    display: flex;
     width: 100%;
-    justify-content: center;
-    gap: 5%;
+    pointer-events: none;
+}
+
+.column-header h1 {
+    font-size: 2vw;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* HOVER INDEX */
+.indexContainer:not(.expanding) .column:hover {
+    flex: 1.5;
+}
+
+.indexContainer:not(.expanding) .column:hover::before {
+    transform: scale(1.2);
+    filter: brightness(0.6);
+}
+
+/* ACTIF SPA */
+.indexContainer.expanding {
+    gap: 0;
+    width: 100vw;
+    height: 90vh;
+}
+
+.indexContainer.expanding .column:not(.active) {
+    flex: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* On désactive les transitions de largeur UNIQUEMENT pendant la navigation avec les flèches */
+.indexContainer.swapping,
+.indexContainer.swapping .column {
+    transition: none !important;
+}
+
+.column.active {
+    flex: 100;
+    cursor: default;
+    border-radius: 0;
+    overflow-y: auto;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.column.active:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.column.active::before {
+    transform: scale(1);
+    filter: brightness(0.15);
+    position: fixed;
+}
+
+.column.active .column-header {
+    display: none;
+}
+
+/* --- ANIMATIONS DIRECTIONNELLES --- */
+.section-content { 
+    display: none; 
+    position: relative; 
+    z-index: 20; 
+    padding: 50px 0vw 150px 0vw;
+}
+
+.column.active .section-content { 
+    display: block; 
+}
+
+.indexContainer[data-anim="fade"] .column.active .section-content > *:not(.btn-nav) { 
+    animation: fadeIn 0.8s ease forwards; 
+}
+
+.indexContainer[data-anim="right"] .column.active .section-content > *:not(.btn-nav) { 
+    animation: slideInLeft 0.6s ease forwards; 
+}
+
+.indexContainer[data-anim="left"] .column.active .section-content > *:not(.btn-nav) { 
+    animation: slideInRight 0.6s ease forwards; 
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(250px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-250px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* --- NAVIGATION INTERNE (MODERNISÉE) --- */
+.btn-nav {
+    position: fixed;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    z-index: 4000;
+    width: 10vw;
+    height: 90vh;
+    top: 10vh;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
 }
 
-#projetsContainer>article>div>h1{
-    margin-top: 0px;
-    padding-bottom: 5%;
+/* Style de la flèche (icône FontAwesome) */
+.btn-nav i {
+    font-size: 2.5vw;
+    opacity: 0.2;       /* Presque invisible par défaut */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Effet rebond */
 }
 
-.projet>div{
+/* Bouton Gauche */
+.btnLeft {
+    left: 0;
+    /* Gradient très subtil vers transparent */
+    background: linear-gradient(to right, rgba(43, 41, 58, 0.5), transparent);
+}
+
+/* Bouton Droit */
+.btnRight {
+    right: 0;
+    background: linear-gradient(to left, rgba(43, 41, 58, 0.5), transparent);
+}
+
+/* --- EFFETS AU SURVOL (HOVER) --- */
+
+.btn-nav:hover {
+    /* Le gradient devient plus sombre et plus présent */
+    background: linear-gradient(to right, rgba(43, 41, 58, 0.8), transparent);
+}
+
+.btnRight:hover {
+    background: linear-gradient(to left, rgba(43, 41, 58, 0.8), transparent);
+}
+
+/* Animation de la flèche au hover */
+.btn-nav:hover i {
+    opacity: 1;
+    color: #6e6c6c; /* Une couleur plus vive (ajustable selon tes goûts) */
+    text-shadow: 0 0 15px rgba(250, 250, 250, 0.2);
+}
+
+/* Déplacement de la flèche vers l'extérieur */
+.btnLeft:hover i {
+    transform: translateX(-15px); /* Se déplace vers la gauche */
+}
+
+.btnRight:hover i {
+    transform: translateX(15px);  /* Se déplace vers la droite */
+}
+
+/* Suppression de l'effet blanc au hover qui casserait le gradient */
+.btn-nav:hover {
+    background-color: transparent; 
+}
+
+/* --- CONTENUS --- */
+#projetsContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 50px;
     align-items: center;
-    width: 80%;
-    gap: 10px;
 }
 
-.projet img{
-    width: 25vw;
-    height: 200px;
-    border-radius: 10px;
-}
-
-#projetsContainer .projet{
-    position: relative;
-    margin: 0px;
-    margin-bottom: 100px;
-    width: 50%;
-    max-width: 80%;
-    border-radius: 10px;
+.projet {
     display: flex;
     justify-content: space-between;
-    box-shadow: rgba(255, 255, 255, 0.1) 5px 0px 50px 5px;
+    align-items: center;
+    width: 60%;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 15px;
+    transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+    will-change: opacity, transform;
 }
 
-.bouton-telecharger {
-    left: 3vw;
-    top: 12vh;
-    font-size: 25px;
-    z-index: 2;
-    border-radius: 5px;
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-    box-shadow: 0px 0px 10px #403939;
-    padding-right: 10px;
-    padding-left: 10px;    
-    background-color: #2b293a;
-    width: 9vw;
-    height: 75%;
+.projet img {
+    width: 25vw;
+    border-radius: 10px;
+}
+
+.square img {
+    width: 12vw;
+}
+
+.projet > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 55%;
     text-align: center;
-    white-space: nowrap;
-    font-size: 24px;
+}
+
+.projetPage {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+}
+
+.projetPage > article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 65%;
+    padding: 20px;
+}
+
+.projetPage h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 2vw;
+} 
+
+.projetPage p {
+    font-size: 1.2vw;      /* Légèrement augmenté car 0.8vw est très petit */
+    text-align: justify;   /* JUSTIFICATION DU TEXTE */
+    width: 100%;           /* Limite la largeur pour un aspect plus "bloc" */
+    line-height: 1.6;      /* Ajoute de l'espace entre les lignes pour la lisibilité */
+    margin-bottom: 15px;
+}
+
+/* On s'assure que le conteneur des boutons reste centré */
+.projetPage div {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    margin-top: 20px;
 }
 
-.bouton-telecharger:hover{
-    background-color: white;
-    color: black;
+/* --- LOGOS DES TECHNOLOGIES --- */
+.tech-logos {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    align-items: center;
 }
-
-.bouton-ensavoirplus {
-    left: 15vw;
-    top: 12vh;
-    z-index: 2;
-    border-radius: 5px;
-    padding: 5px;
+.tech-logos i, 
+.tech-logos img {
+    font-size: 40px;
+    height: 40px;   
+    width: auto;
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.tech-logos i:hover, 
+.tech-logos img:hover {
     color: white;
-    text-decoration: none;
-    box-shadow: 0px 0px 10px #403939;
-    padding-right: 10px;
-    padding-left: 10px;
-    background-color: #2b293a;
-    width: 9vw;
-    height: 75%;
-    text-align: center;
-    vertical-align: middle;
-    display: flex;      
+    opacity: 1;
+    transform: translateY(-5px);
+    filter: drop-shadow(0px 5px 10px rgba(255, 255, 255, 0.3));
+}
+
+/* --- GALERIE D'IMAGES (PROJETS) --- */
+.gallery-title {
+    width: 100%;
+    text-align: left;
+    font-size: 1.5vw;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.project-gallery {
+    display: flex;
+    flex-wrap: wrap; /* La fameuse propriété pour le retour à la ligne automatique */
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 30px;
+    justify-content: center; /* Centre la grille d'images dans l'espace disponible */
+}
+
+.gallery-img {
+    flex: 1 1 150px; /* Permet aux images de s'adapter tout en gardant une base de 150px */
+    max-width: 220px; /* Empêche les images de s'étirer de façon disproportionnée */
+    height: 120px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+/* --- FENÊTRE MODALE (LIGHTBOX) --- */
+.modal {
+    position: fixed;
+    z-index: 5000; /* Doit être au-dessus de tout le reste */
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
     justify-content: center;
     align-items: center;
-    white-space: nowrap;         
-    overflow: hidden;            
-    text-overflow: ellipsis;                   
-    min-width: 0;
-    font-size: 24px;                   
+    transition: opacity 0.3s ease;
 }
 
-/* cible le span texte pour que le JS modifie la taille facilement */
-.bouton-ensavoirplus > span {
-  display: inline-block; /* nécessaire pour mesurer scrollWidth correctement */
-  transform-origin: left center;
+.modal.hidden {
+    display: none !important;
 }
 
-.bouton-ensavoirplus:hover{
-    background-color: white;
-    color: black;
+.modal-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    object-fit: contain; /* L'image s'affiche en entier sans être coupée */
 }
 
-#mainBody{
-    overflow: hidden;
-    height: 100vh;
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
+.close-modal:hover {
+    color: #ccc;
+}
+
+
+.bouton-telecharger,
+.bouton-ensavoirplus,
+.btnRetour {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 12vw;      /* Largeur fixe minimale pour la symétrie */
+    height: 45px;         /* Hauteur fixe pour l'uniformité */
+    margin: 10px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-family: sans-serif; /* Pour rester cohérent avec le reste */
+    text-transform: uppercase;         /* Optionnel : rend les boutons plus pro */
+    font-size: 1vw;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.05); /* Fond très léger au lieu de transparent */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.bouton-telecharger:hover,
+.bouton-ensavoirplus:hover,
+.btnRetour:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px); /* Petit effet de levier */
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+#infosContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#infosContainer>article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+}
+
+#infosContainer p {
+    width: 60%;
+    font-size: 1.5vw;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* --- TIMELINE VERTICALE CENTRÉE --- */
+#mainParcours {
+    padding: 20px 0 100px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vertical-timeline {
+    position: relative;
+    max-width: 1200px;
+    width: 90%;
+    margin-top: 25px;
+}
+
+/* La ligne centrale */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2) 10%, rgba(255, 255, 255, 0.2) 90%, transparent);
+    transform: translateX(-50%);
+}
+
+.v-item {
+    position: relative;
+    width: 45%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 150px;
+    margin-bottom: 30px;
+    transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+    will-change: opacity, transform;
+}
+
+/* Alternance Gauche / Droite */
+.v-item.left { 
+    left: 0; 
+    text-align: right; 
+    padding: 25px;
+    transform-origin: right center;
+}
+.v-item.right { 
+    left: 52%; 
+    text-align: left; 
+    transform-origin: left center;
+}
+
+/* Le point central */
+.v-dot {
+    position: absolute;
+    top: 60%;
+    width: 40px;
+    height: 40px;
+    background: #000;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transform: translateY(-50%);
+    transition: all 0.4s ease;
+}
+
+.v-dot i { font-size: 14px; color: rgba(255, 255, 255, 0.5); }
+
+.v-item.left .v-dot { right: -82px; }
+.v-item.right .v-dot { left: -46px; }
+
+/* Contenu de l'étape */
+.v-content {
+    text-align: center;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.v-content h3 { margin: 0; font-size: 1.4vw; color: white; }
+.v-content p { margin: 5px 0 0; color: rgba(255, 255, 255, 0.5); font-size: 1vw; }
+
+/* La date */
+.v-date {
+    padding-left: 10px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 1.2vw;
+    margin-bottom: 5px;
+    transition: color 0.4s;
+}
+
+.v-item.left .v-date {
+    padding-left: 30px;
+    width: 100%;
+}
+
+/* --- EFFETS AU SURVOL --- */
+.v-item:hover .v-content {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.v-item:hover .v-dot {
+    border-color: #fff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.2);
+}
+
+.v-item:hover .v-dot i { color: #fff; }
+.v-item:hover .v-date { color: #fff; }
+
+/* Style pour l'élément actif (BUT Informatique) */
+.v-item.active .v-dot {
+    background: white;
+    border-color: white;
+}
+.v-item.active .v-dot i { color: black; }
+.v-item.active .v-date { color: white; opacity: 1; }
+
+#mainParcours img {
+    max-width: 70%;
+    border-radius: 10px;
+}
+
+/* --- RESPONSIVE MODE --- */
 @media screen and (orientation: portrait) {
-    header>nav>div{
-        display: block;
+    .titreNav p {
+        font-size: 5vw;
     }
-
-    header>nav>h1{
-        top: 70px;
-    }
-
-    header nav p{
-        font-size: 20px;
-    }
-
-    header nav>button{
-        right: 10vw;
-    }
-
-    header nav>a{
-        right: 10vw;
-    }
-
-    main>a {
-        height: 40vh;
-        align-items: start;
-    }
-
-    main>a:nth-of-type(2) {
-        top: 25vh;
-    }
-
-    main>a:nth-of-type(1), main>a:nth-of-type(3) {
-        top: 45vh;
-    }
-
-    #indexParcours{
-        background-size: 25vh;
-        background-position: center;
-    }
-
-    #indexInfos{
-        background-size: 25vh;
-        background-position: center;
-    }
-
-    #indexProjet{
-        background-size: 25vh;
-        background-position: center;
-    }
-
+    
     .indexContainer {
-        overflow: hidden;
-        height: 100%;
-        margin-top: 8vh; /* ajuste entre 5 et 15 selon l’effet souhaité */
+        flex-direction: column;
+    }
+    
+    .btn-nav {
+        width: 15vw;
+        font-size: 3vw;
     }
 
-    .indexContainer a {
-        margin-top: 3vh; /* descend chaque bloc individuellement */
+    .timeline-line { left: 30px; }
+    .v-item { width: 100%; left: 0 !important; text-align: left !important; padding-left: 70px; }
+    .v-dot { left: 10px !important; }
+    .v-content h3 { font-size: 4.5vw; }
+    .v-content p { font-size: 3.5vw; }
+    .v-date { font-size: 3.5vw; }
+
+    /* Titres des colonnes avant l'ouverture */
+    .column-header h1 {
+        font-size: 7vw;
     }
 
-    .titreNav p{
+    /* Élargissement des zones de texte (65% c'est trop petit sur mobile) */
+    .projetPage > article,
+    #infosContainer p {
+        width: 90%;
+    }
+
+    /* Titres dans les pages de détail */
+    .projetPage h1 {
+        font-size: 7vw;
+    }
+    .gallery-title {
         font-size: 5vw;
     }
 
-    #arrowL, #arrowR {
-        font-size: 15vw;
-        z-index: 1000 !important;
+    /* Paragraphes de texte */
+    .projetPage p,
+    #infosContainer p {
+        font-size: 4vw; /* On passe de 1.2vw à 4vw */
     }
 
-    #arrowL { left: 32vw; }
-
-    #arrowL:hover, #arrowR:hover {
-        font-size: 15vw;
-    }
-
-    .articleL {
-        justify-content: flex-start;
-    }
-
-    .articleR {
-        justify-content: flex-end;
-    }
-
-    .projet{
-        width: 90% !important;
-        flex-direction: column;
-    }
-
-    .projet>div {
-        width: 100%;
-    }
-
-    .projet img{
-        width: 100%;
-    }
-
-    #projetsContainer>article>div>h1 {
-        padding-bottom: 0px;
-    }
-
-    #infosContainer>p{
+    /* Ajustement des boutons pour être cliquables avec le doigt */
+    .bouton-telecharger,
+    .bouton-ensavoirplus,
+    .btnRetour {
         font-size: 3.5vw;
+        min-width: 40vw;
+        padding: 12px 10px;
+        height: auto;
     }
 
-    .projetsContainer>article>div>div{
-        display: flex;
+    /* Ajustement des cartes "Projets" dans la liste principale */
+    .projet {
+        flex-direction: column; /* Empile l'image et le texte verticalement */
+        width: 85%;
+        text-align: center;
+    }
+    .projet img {
+        width: 70vw;
+        margin: 15px 0;
+    }
+    .square img {
+        width: 40vw; /* Les logos carrés prennent un peu moins de place */
+    }
+    .projet > div {
         width: 100%;
-        margin-bottom: 15px;
     }
+}
 
-    .bouton-telecharger, .bouton-ensavoirplus{
-        font-size: 15px !important;
-        width: 15vw;
-        height: 32px;
-    }
-
-    #retour {
-        visibility: hidden;
-    }
-
-    #retourCircle {
-        visibility: hidden;
-        position: fixed;
-        font-size: 5vh;
-        left: 3vh;
-        top: 20vh;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 5px;
-        background-color: white;
-        border-radius: 15px;
-        z-index: 2;
-        border: 1px solid white;
-    }
-
-    #retourCircle > .fa-arrow-left {
-        color: black;
-    }
-
-    #retourCircle:hover > .fa-arrow-left {
-        color: white;
-    }
-
-    #retourCircle:hover {
-        background-color: black;
-    }
-
-    #btnLeft{
-        bottom: 10vh;
-        width: 20vw;
-        font-size: 2.5vw;
-    }
-
-    #btnRight{
-        bottom: 10vh;
-        width: 20vw;
-        font-size: 2.5vw;
-    }
-
-    #mainParcours{
-        margin-top: 80px;
-    }
-
-    #mainParcours>div>img{
-        max-width: 100vw;
-    }
-
-    .margin-bottom15px {
-        margin-bottom: 15px;
-    }
+.hidden{
+    display: none !important;
 }
